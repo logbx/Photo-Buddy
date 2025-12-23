@@ -1,19 +1,25 @@
 {
   "expo": {
-    "name": "photo-buddy",
+    "name": "Photo Buddy",
     "slug": "photo-buddy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "scheme": "photo-buddy",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.photobuddy.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Photo Buddy needs camera access to help you recreate photo angles",
+        "NSPhotoLibraryUsageDescription": "Photo Buddy needs photo library access to select reference photos"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,10 +27,31 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.photobuddy.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Photo Buddy needs camera access to help you recreate photo angles"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Photo Buddy needs photo library access to select reference photos"
+        }
+      ],
+      "expo-sensors"
+    ]
   }
 }
