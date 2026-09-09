@@ -138,6 +138,7 @@ describe('Project Store', () => {
         imageUri: 'file:///attempt.jpg',
         capturedAt: new Date().toISOString(),
         matchScore: 85,
+        guidance: null,
       };
 
       addAttempt(project.id, attempt);
@@ -175,6 +176,7 @@ describe('Project Store', () => {
         imageUri: 'file:///attempt.jpg',
         capturedAt: new Date().toISOString(),
         matchScore: 85,
+        guidance: null,
       };
 
       addAttempt(project.id, attempt);
