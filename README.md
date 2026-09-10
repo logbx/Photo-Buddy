@@ -155,6 +155,9 @@ npm start          # Start Expo development server
 npm run android    # Open on Android emulator
 npm run ios        # Open on iOS simulator
 npm run web        # Open in web browser
+npm test           # Run test suite
+npm run test:watch # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
 ```
 
 ### Type Checking
@@ -162,6 +165,13 @@ npm run web        # Open in web browser
 ```bash
 npx tsc --noEmit
 ```
+
+### Continuous Integration
+
+The project includes a GitHub Actions CI workflow that automatically:
+- Runs on all pushes to `main` and pull requests targeting `main`
+- Installs dependencies and runs the full test suite
+- Validates the build without requiring live API keys (tests use mocks)
 
 ### Environment Variables
 
